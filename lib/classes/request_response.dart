@@ -22,7 +22,7 @@ class RequestResponse {
     int perPage;
     int total;
     int totalPages;
-    List<Datum> data;
+    List<Person> data;
     Support support;
 
     factory RequestResponse.fromJson(Map<String, dynamic> json) => RequestResponse(
@@ -30,7 +30,7 @@ class RequestResponse {
         perPage: json['per_page'],
         total: json['total'],
         totalPages: json['total_pages'],
-        data: List<Datum>.from(json['data'].map((x) => Datum.fromJson(x))),
+        data: List<Person>.from(json['data'].map((x) => Person.fromJson(x))),
         support: Support.fromJson(json['support']),
     );
 
@@ -44,8 +44,8 @@ class RequestResponse {
     };
 }
 
-class Datum {
-    Datum({
+class Person {
+    Person({
         required this.id,
         required this.email,
         required this.firstName,
@@ -59,7 +59,7 @@ class Datum {
     String lastName;
     String avatar;
 
-    factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+    factory Person.fromJson(Map<String, dynamic> json) => Person(
         id: json['id'],
         email: json['email'],
         firstName: json['first_name'],
